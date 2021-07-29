@@ -143,8 +143,8 @@ extension ViewController: UICollectionViewDelegate {
                 selectedIndexPath = nil
             }
         }
-        collectionView.reloadData()
-//        collectionView.reloadItems(at: [indexPath])
+//        collectionView.reloadData()
+        collectionView.reloadItems(at: [indexPath])
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
