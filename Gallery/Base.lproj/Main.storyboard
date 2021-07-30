@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mxY-jj-AZB">
-                                <rect key="frame" x="20" y="64" width="374" height="498"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mxY-jj-AZB">
+                                <rect key="frame" x="20" y="64" width="374" height="686.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z3M-9t-oJf">
                                     <size key="itemSize" width="170" height="170"/>
@@ -47,7 +47,6 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.72446594890000005" green="1" blue="0.80126359130000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <size key="customSize" width="170" height="170"/>
                                         <connections>
                                             <outlet property="imageViewInCell" destination="XDM-v1-Ywr" id="KaI-FU-xYZ"/>
                                         </connections>
@@ -67,40 +66,27 @@
                                 <rect key="frame" x="9" y="795" width="128" height="22"/>
                                 <state key="normal" title="Button &quot;Like&quot;" image="heart" catalog="system"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L2I-S4-dr5">
-                                <rect key="frame" x="10" y="572" width="394" height="188.5"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VoX-Cg-TeH">
-                                <rect key="frame" x="208" y="79" width="494" height="250"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mxY-jj-AZB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="2fa-9d-bBa"/>
-                            <constraint firstItem="L2I-S4-dr5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="GDO-hL-rPx"/>
+                            <constraint firstItem="BIS-SU-kPD" firstAttribute="top" secondItem="mxY-jj-AZB" secondAttribute="bottom" constant="20" id="9NT-c1-hn6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BIS-SU-kPD" secondAttribute="trailing" constant="20" id="ITg-y4-bDv"/>
                             <constraint firstItem="Ir4-CT-uxb" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0245536" id="N8O-BO-VgD"/>
                             <constraint firstItem="Ir4-CT-uxb" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.309179" id="SIo-4K-euR"/>
                             <constraint firstItem="BIS-SU-kPD" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.08" id="V2Y-VN-rgk"/>
                             <constraint firstItem="BIS-SU-kPD" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="dAI-hh-r2z"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L2I-S4-dr5" secondAttribute="trailing" constant="10" id="iUX-FM-tXm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ir4-CT-uxb" secondAttribute="bottom" constant="45" id="jNl-qu-vOd"/>
                             <constraint firstItem="Ir4-CT-uxb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="9" id="pfp-hl-3hC"/>
                             <constraint firstItem="mxY-jj-AZB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="r91-ZR-NPQ"/>
-                            <constraint firstItem="BIS-SU-kPD" firstAttribute="top" secondItem="L2I-S4-dr5" secondAttribute="bottom" constant="10" id="uMB-Ef-H8s"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BIS-SU-kPD" secondAttribute="bottom" constant="20" id="uii-Xr-UBa"/>
-                            <constraint firstItem="L2I-S4-dr5" firstAttribute="top" secondItem="mxY-jj-AZB" secondAttribute="bottom" constant="10" id="vHw-vp-Adz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mxY-jj-AZB" secondAttribute="trailing" constant="20" id="wPu-6u-Xnw"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="mxY-jj-AZB" id="F8a-wt-y7f"/>
                         <outlet property="loadPictureButton" destination="BIS-SU-kPD" id="aYs-6m-rwl"/>
-                        <outlet property="pickerImageView" destination="L2I-S4-dr5" id="Wyn-PZ-okR"/>
-                        <outlet property="testSizeView" destination="VoX-Cg-TeH" id="Zom-1K-Lpb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -113,9 +99,6 @@
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

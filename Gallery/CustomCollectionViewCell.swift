@@ -11,7 +11,5 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageViewInCell: UIImageView!
     static let identifier = "CustomCollectionViewCell"
-    
- 
 }
 
