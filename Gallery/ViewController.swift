@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreMotion
 
 class ViewController: UIViewController {
     
@@ -21,7 +20,6 @@ class ViewController: UIViewController {
     private var fileManager = FileManager.default
     private lazy var cacheFolderURL = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
     private lazy var savedImagesFolderURL = cacheFolderURL.appendingPathComponent("Images")
-    let motionManager = CMMotionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
