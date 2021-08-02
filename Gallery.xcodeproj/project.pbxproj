@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1809ED6426AB117D00B50B19 /* AddImageNSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809ED6326AB117D00B50B19 /* AddImageNSObject.swift */; };
+		1809ED6426AB117D00B50B19 /* AddImageToGalleryPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809ED6326AB117D00B50B19 /* AddImageToGalleryPickerDelegate.swift */; };
 		18F94BD22697455200FB3312 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F94BD12697455200FB3312 /* AppDelegate.swift */; };
 		18F94BD42697455200FB3312 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F94BD32697455200FB3312 /* SceneDelegate.swift */; };
 		18F94BD62697455200FB3312 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F94BD52697455200FB3312 /* ViewController.swift */; };
@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1809ED6326AB117D00B50B19 /* AddImageNSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageNSObject.swift; sourceTree = "<group>"; };
+		1809ED6326AB117D00B50B19 /* AddImageToGalleryPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageToGalleryPickerDelegate.swift; sourceTree = "<group>"; };
 		18F94BCE2697455200FB3312 /* Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F94BD12697455200FB3312 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18F94BD32697455200FB3312 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 				18F94BD12697455200FB3312 /* AppDelegate.swift */,
 				18F94BD32697455200FB3312 /* SceneDelegate.swift */,
 				18F94BD52697455200FB3312 /* ViewController.swift */,
-				1809ED6326AB117D00B50B19 /* AddImageNSObject.swift */,
+				1809ED6326AB117D00B50B19 /* AddImageToGalleryPickerDelegate.swift */,
 				18F94BE92697FCBE00FB3312 /* PicturesInfoArray.swift */,
 				18F94BE72697498E00FB3312 /* CustomCollectionViewCell.swift */,
 				18F94BD72697455200FB3312 /* Main.storyboard */,
@@ -148,7 +148,7 @@
 			files = (
 				18F94BD62697455200FB3312 /* ViewController.swift in Sources */,
 				18F94BD22697455200FB3312 /* AppDelegate.swift in Sources */,
-				1809ED6426AB117D00B50B19 /* AddImageNSObject.swift in Sources */,
+				1809ED6426AB117D00B50B19 /* AddImageToGalleryPickerDelegate.swift in Sources */,
 				18F94BEA2697FCBE00FB3312 /* PicturesInfoArray.swift in Sources */,
 				18F94BD42697455200FB3312 /* SceneDelegate.swift in Sources */,
 				18F94BE82697498E00FB3312 /* CustomCollectionViewCell.swift in Sources */,

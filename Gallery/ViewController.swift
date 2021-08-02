@@ -15,7 +15,9 @@ class ViewController: UIViewController {
     
     var userDefaults = UserDefaults.standard
     var picturesInfoArray: [PicturesInfoArray] = []
-    lazy var addImageViewController = AddImageNSObject(viewController: self, customCollectionViewCell: CustomCollectionViewCell())
+    lazy var addImageToGallery = AddImageToGalleryPickerDelegate(viewController: self
+    //                                                                  , customCollectionViewCell: CustomCollectionViewCell()
+    )
     var selectedIndexPath: IndexPath?
     private var fileManager = FileManager.default
     private lazy var cacheFolderURL = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
@@ -30,9 +32,18 @@ class ViewController: UIViewController {
     }
 
     @IBAction func loadPictureButtonPressed(_ sender: Any) {
-        addImageViewController.addImage(completion: {
-         print("проба completion")
-        })
+        addImageToGallery.addImage {addedImage in
+            // записать выбранную картинку в каталог с новым именем
+            let imageName = "\(Int(Date().timeIntervalSince1970)).png"
+            let imageURL = self.savedImagesFolderURL.appendingPathComponent(imageName)
+            self.fileManager.createFile(atPath: imageURL.path, contents: addedImage.pngData(), attributes: [ : ])
+            //и записать это имя в массив имен и в userDefaults.value(forKey: "Gallery")
+            self.picturesInfoArray.append(PicturesInfoArray(imageAddTime: Date(), imageName: imageName))
+            let encoder = JSONEncoder()
+            let data = try? encoder.encode(self.picturesInfoArray)
+            self.userDefaults.setValue(data, forKey: "Gallery")
+            self.collectionView.reloadData()
+        }
     }
     
     func getSavedPictures() -> [PicturesInfoArray] {
