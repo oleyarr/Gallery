@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     var userDefaults = UserDefaults.standard
     var picturesInfoArray: [PicturesInfoArray] = []
     lazy var addImageToGallery = AddImageToGalleryPickerDelegate(viewController: self
-    //                                                                  , customCollectionViewCell: CustomCollectionViewCell()
+                                                                 //                                                                  , customCollectionViewCell: CustomCollectionViewCell()
     )
     var selectedIndexPath: IndexPath?
     private var fileManager = FileManager.default
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-
+    
     @IBAction func loadPictureButtonPressed(_ sender: Any) {
         addImageToGallery.addImage {addedImage in
             // записать выбранную картинку в каталог с новым именем
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         if let dataKey = userDefaults.value(forKey: "Gallery") as? Data {
             let decoder = JSONDecoder()
             do {
-            let getData = try decoder.decode([PicturesInfoArray].self, from: dataKey)
+                let getData = try decoder.decode([PicturesInfoArray].self, from: dataKey)
                 return getData
             }
             catch {
@@ -67,7 +67,7 @@ extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return picturesInfoArray.count
     }
-        
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else { return UICollectionViewCell() }
         if !(picturesInfoArray.count == 1 && picturesInfoArray[0].imageName == "default_image") {
@@ -107,7 +107,11 @@ extension ViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0 // 0 иначе не отображается выбранный image на полный экран при выборе, но при этом картинки склеиваются по вертикали (можно задать констрейнтами отступ, но фон ячейки должен быть прозрачным)
+        if selectedIndexPath == nil {
+            return 10
+        } else {
+            return 0 // 0 иначе не отображается выбранный image на полный экран при выборе, но при этом картинки склеиваются по вертикали (можно задать констрейнтами отступ, но фон ячейки должен быть прозрачным)
+        }
     }
 }
 
