@@ -103,16 +103,21 @@ extension ViewController: UICollectionViewDelegate {
             }
         }
         collectionView.reloadData()
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0 // 0 иначе не отображается выбранный image на полный экран при выборе, но при этом картинки склеиваются по вертикали (можно задать констрейнтами отступ, но фон ячейки должен быть прозрачным)
     }
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if selectedIndexPath == nil {
-            return CGSize(width: collectionView.frame.size.width / 2 - 20, height: collectionView.frame.size.height / 4 - 40)
+            return CGSize(width: collectionView.frame.size.width / 2 - 5, height: collectionView.frame.size.height / 5 - 10)
         } else {
             return collectionView.frame.size
         }
     }
+    
 }
