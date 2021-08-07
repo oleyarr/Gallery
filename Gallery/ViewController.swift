@@ -11,30 +11,27 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadPictureButton: UIButton!
-    @IBOutlet weak var testSizeView: UIView!
     
     var userDefaults = UserDefaults.standard
     var picturesInfoArray: [PicturesInfo] = []
-    lazy var addImageToGallery = AddImageToGalleryPickerDelegate(viewController: self
-
-    )
+    lazy var addImageToGallery = AddImageToGalleryPickerDelegate(viewController: self)
     var selectedIndexPath: IndexPath?
     private var fileManager = FileManager.default
     private lazy var cacheFolderURL = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
     private lazy var savedImagesFolderURL = cacheFolderURL.appendingPathComponent("Images")
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let passwordViewController = storyboard.instantiateViewController(identifier: "PasswordViewController")
-        present(passwordViewController, animated: true)
-        
-        try? fileManager.createDirectory(at: savedImagesFolderURL, withIntermediateDirectories: true, attributes: [ : ])
-        picturesInfoArray = getSavedPictures()
-        collectionView.dataSource = self
-        collectionView.delegate = self
+    override func viewDidAppear(_ animated: Bool) {
+        popupPasswordViewController()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+            try? fileManager.createDirectory(at: savedImagesFolderURL, withIntermediateDirectories: true, attributes: [ : ])
+            picturesInfoArray = getSavedPictures()
+            collectionView.dataSource = self
+            collectionView.delegate = self
+    }
+
     @IBAction func loadPictureButtonPressed(_ sender: Any) {
         addImageToGallery.addImage {addedImage in
             // записать выбранную картинку в каталог с новым именем
@@ -50,6 +47,13 @@ class ViewController: UIViewController {
         }
     }
     
+    func popupPasswordViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let passwordViewController = storyboard.instantiateViewController(identifier: "PasswordViewController")
+        passwordViewController.modalPresentationStyle = .fullScreen
+        present(passwordViewController, animated: true)
+    }
+
     func getSavedPictures() -> [PicturesInfo] {
         // достаем информацию о картинках: путь к картинкам, кол-во лайков, комменты и прочее
         if let dataKey = userDefaults.value(forKey: "Gallery") as? Data {

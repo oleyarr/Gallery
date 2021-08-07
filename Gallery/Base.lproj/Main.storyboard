@@ -18,15 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="введите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCs-93-Ehm">
-                                <rect key="frame" x="58" y="211" width="302" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="введите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LCs-93-Ehm">
+                                <rect key="frame" x="132" y="244" width="150" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Lj8-NA-NRb"/>
+                                    <constraint firstAttribute="height" constant="22" id="VFB-Cy-UKa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNX-tR-3eU">
-                                <rect key="frame" x="206" y="75" width="154" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNX-tR-3eU">
+                                <rect key="frame" x="271" y="142" width="99" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <state key="normal" title="сброс пароля">
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -34,9 +37,9 @@
                                     <action selector="clearPasswordButtonPressed:" destination="pwJ-4Y-Dej" eventType="touchUpInside" id="r5Q-12-lNt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PwA-qe-Hcc">
-                                <rect key="frame" x="206" y="136" width="154" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PwA-qe-Hcc">
+                                <rect key="frame" x="230" y="192" width="140" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <state key="normal" title="сохранение пароля">
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -44,17 +47,35 @@
                                     <action selector="savePasswordButtonPressed:" destination="pwJ-4Y-Dej" eventType="touchUpInside" id="qyz-iJ-yhU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="неверный пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4AV-1E-o3m">
+                                <rect key="frame" x="144" y="286" width="126" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Vo-1i-Rql"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7Vo-1i-Rql" firstAttribute="trailing" secondItem="xNX-tR-3eU" secondAttribute="trailing" constant="44" id="5Ez-Oo-Hm3"/>
+                            <constraint firstItem="4AV-1E-o3m" firstAttribute="top" secondItem="LCs-93-Ehm" secondAttribute="bottom" constant="20" id="Hhd-0z-mzq"/>
+                            <constraint firstItem="7Vo-1i-Rql" firstAttribute="trailing" secondItem="PwA-qe-Hcc" secondAttribute="trailing" constant="44" id="Xng-72-fRq"/>
+                            <constraint firstItem="LCs-93-Ehm" firstAttribute="centerX" secondItem="jds-40-RWy" secondAttribute="centerX" id="ZSQ-57-O1K"/>
+                            <constraint firstItem="LCs-93-Ehm" firstAttribute="centerY" secondItem="jds-40-RWy" secondAttribute="centerY" priority="999" id="kWu-uX-BJn"/>
+                            <constraint firstItem="4AV-1E-o3m" firstAttribute="centerX" secondItem="jds-40-RWy" secondAttribute="centerX" id="p1X-Cj-SWS"/>
+                            <constraint firstItem="LCs-93-Ehm" firstAttribute="top" secondItem="PwA-qe-Hcc" secondAttribute="bottom" constant="22" id="pPR-GY-Nts"/>
+                            <constraint firstItem="PwA-qe-Hcc" firstAttribute="top" secondItem="xNX-tR-3eU" secondAttribute="bottom" constant="20" id="rpr-lM-8pZ"/>
+                            <constraint firstItem="LCs-93-Ehm" firstAttribute="top" secondItem="7Vo-1i-Rql" secondAttribute="top" constant="200" id="zBp-jc-skE"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="passwordCheckErrorLabel" destination="4AV-1E-o3m" id="iOB-58-WCx"/>
                         <outlet property="passwordTextField" destination="LCs-93-Ehm" id="dH9-FX-cYM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jl-7h-BUi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="678" y="94"/>
+            <point key="canvasLocation" x="676.81159420289862" y="93.75"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -145,6 +166,9 @@
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
