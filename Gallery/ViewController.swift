@@ -14,9 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var testSizeView: UIView!
     
     var userDefaults = UserDefaults.standard
-    var picturesInfoArray: [PicturesInfoArray] = []
+    var picturesInfoArray: [PicturesInfo] = []
     lazy var addImageToGallery = AddImageToGalleryPickerDelegate(viewController: self
-                                                                 //                                                                  , customCollectionViewCell: CustomCollectionViewCell()
+
     )
     var selectedIndexPath: IndexPath?
     private var fileManager = FileManager.default
@@ -25,6 +25,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let passwordViewController = storyboard.instantiateViewController(identifier: "PasswordViewController")
+        present(passwordViewController, animated: true)
+        
         try? fileManager.createDirectory(at: savedImagesFolderURL, withIntermediateDirectories: true, attributes: [ : ])
         picturesInfoArray = getSavedPictures()
         collectionView.dataSource = self
@@ -38,7 +42,7 @@ class ViewController: UIViewController {
             let imageURL = self.savedImagesFolderURL.appendingPathComponent(imageName)
             self.fileManager.createFile(atPath: imageURL.path, contents: addedImage.pngData(), attributes: [ : ])
             //и записать это имя в массив имен и в userDefaults.value(forKey: "Gallery")
-            self.picturesInfoArray.append(PicturesInfoArray(imageAddTime: Date(), imageName: imageName))
+            self.picturesInfoArray.append(PicturesInfo(imageAddTime: Date(), imageName: imageName))
             let encoder = JSONEncoder()
             let data = try? encoder.encode(self.picturesInfoArray)
             self.userDefaults.setValue(data, forKey: "Gallery")
@@ -46,12 +50,12 @@ class ViewController: UIViewController {
         }
     }
     
-    func getSavedPictures() -> [PicturesInfoArray] {
+    func getSavedPictures() -> [PicturesInfo] {
         // достаем информацию о картинках: путь к картинкам, кол-во лайков, комменты и прочее
         if let dataKey = userDefaults.value(forKey: "Gallery") as? Data {
             let decoder = JSONDecoder()
             do {
-                let getData = try decoder.decode([PicturesInfoArray].self, from: dataKey)
+                let getData = try decoder.decode([PicturesInfo].self, from: dataKey)
                 return getData
             }
             catch {
@@ -69,7 +73,9 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath
+        ) as? CustomCollectionViewCell else { return UICollectionViewCell() }
         if !(picturesInfoArray.count == 1 && picturesInfoArray[0].imageName == "default_image") {
             let imageFileName = picturesInfoArray[indexPath.item].imageName
             let imageFileURL = savedImagesFolderURL.appendingPathComponent(imageFileName)
@@ -110,7 +116,10 @@ extension ViewController: UICollectionViewDelegate {
         if selectedIndexPath == nil {
             return 10
         } else {
-            return 0 // 0 иначе не отображается выбранный image на полный экран при выборе, но при этом картинки склеиваются по вертикали (можно задать констрейнтами отступ, но фон ячейки должен быть прозрачным)
+            return 0
+            // 0 иначе не отображается выбранный image на полный экран при выборе, но при этом
+            // картинки склеиваются по вертикали (можно задать констрейнтами отступ, но фон ячейки
+            //  должен быть прозрачным)
         }
     }
 }

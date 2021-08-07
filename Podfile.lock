@@ -1,0 +1,16 @@
+PODS:
+  - SwiftyKeychainKit (1.0.0-beta.2)
+
+DEPENDENCIES:
+  - SwiftyKeychainKit (= 1.0.0-beta.2)
+
+SPEC REPOS:
+  trunk:
+    - SwiftyKeychainKit
+
+SPEC CHECKSUMS:
+  SwiftyKeychainKit: dcbb1098d4fa1548282287a6beb186f9393e9025
+
+PODFILE CHECKSUM: 70838c4f55d28b1932138f926b10481e4d1620f4
+
+COCOAPODS: 1.10.1

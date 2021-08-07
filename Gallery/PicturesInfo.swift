@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PicturesInfoArray: Codable {
+class PicturesInfo: Codable {
     var imageAddTime: Date
     var imageName: String
     var imageLikesCount: Int
