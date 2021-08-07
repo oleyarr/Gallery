@@ -50,8 +50,8 @@ class ViewController: UIViewController {
     func popupPasswordViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let passwordViewController = storyboard.instantiateViewController(identifier: "PasswordViewController")
-        passwordViewController.modalPresentationStyle = .fullScreen
-        present(passwordViewController, animated: true)
+        passwordViewController.modalPresentationStyle = .overCurrentContext
+        present(passwordViewController, animated: false)
     }
 
     func getSavedPictures() -> [PicturesInfo] {
