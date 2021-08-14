@@ -11,7 +11,7 @@ class PasswordViewController: UIViewController {
 
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordCheckErrorLabel: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordCheckErrorLabel.textColor = .clear

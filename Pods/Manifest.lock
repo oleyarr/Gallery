@@ -1,16 +1,20 @@
 PODS:
+  - SwiftLint (0.43.1)
   - SwiftyKeychainKit (1.0.0-beta.2)
 
 DEPENDENCIES:
+  - SwiftLint
   - SwiftyKeychainKit (= 1.0.0-beta.2)
 
 SPEC REPOS:
   trunk:
+    - SwiftLint
     - SwiftyKeychainKit
 
 SPEC CHECKSUMS:
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   SwiftyKeychainKit: dcbb1098d4fa1548282287a6beb186f9393e9025
 
-PODFILE CHECKSUM: 70838c4f55d28b1932138f926b10481e4d1620f4
+PODFILE CHECKSUM: c84eb8d84a3be03654eb5381c34aa63f680f7825
 
 COCOAPODS: 1.10.1
